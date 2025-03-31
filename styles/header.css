@@ -1,0 +1,15 @@
+.header {
+  justify-content: center; /* Centre les éléments horizontalement */
+}
+
+/* Suppression du titre saferHustle */
+.header h1 {
+  display: none;
+}
+
+/* Previous shadow effect */
+.header {
+    /* ... other styles ... */
+    /* Commenting out or removing this line will disable the shadow */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}

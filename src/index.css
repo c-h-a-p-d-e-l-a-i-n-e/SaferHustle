@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-poppins bg-[#ffddb9] text-[#0a0304] m-0 p-0 box-border leading-[1.25];
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  input[type="text"],
+  input[type="datetime-local"],
+  select,
+  textarea {
+    @apply w-full border border-[#0a0304] rounded px-3 py-3 mb-4 text-base bg-[#ffddb9] text-[#0a0304] focus:border-[#bf273a] focus:outline-none transition-colors duration-150;
+  }
+
+  input[type="text"],
+  input[type="datetime-local"] {
+    @apply h-10;
+  }
+
+  select {
+    @apply h-10 appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%230a0304%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-no-repeat bg-[center_right_6px] pr-[22px];
+  }
+
+  textarea {
+    @apply h-[120px] resize-y;
+  }
+
+  input[type="file"] {
+    @apply w-10 h-10 mb-4 border-none bg-transparent;
+  }
+
+  input[type="checkbox"] {
+    @apply absolute opacity-0 w-0 h-0;
+  }
+
+  .checkbox-container .text-sm {
+    @apply text-inherit;
+  }
+
+  input[type="radio"] {
+    @apply absolute opacity-0 w-0 h-0;
+  }
+
+  h1 {
+    @apply text-[32px] font-bold leading-[40px] mb-6 text-[#0a0304] md:text-[28px];
+  }
+
+  h2 {
+    @apply text-2xl font-semibold leading-8 mb-6 text-[#0a0304];
+  }
+
+  p {
+    @apply text-base leading-6 mb-6 text-[#0a0304] md:text-sm md:leading-5;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply font-poppins text-base rounded cursor-pointer border-none transition-transform duration-200 ease-in-out;
+  }
+
+  .btn-primary {
+    @apply btn bg-[#bf273a] text-[#ffddb9] px-6 py-3 hover:scale-105;
+  }
+
+  .btn-details {
+    @apply btn bg-[#bf273a] text-[#ffddb9] px-4 py-2 hover:scale-105 transition-transform duration-300;
+  }
+
+  .card {
+    @apply bg-[#ffddb9] p-4 mb-6 border border-[#bf273a] rounded;
+  }
+
+  .card-title {
+    @apply text-xl mb-2 text-[#0a0304];
+  }
+
+  .nav-links {
+    @apply text-base mr-5 text-[#ffddb9] no-underline;
+  }
+
+  .navbar-toggle {
+    @apply hidden md:block cursor-pointer;
+  }
+
+  .mobile-menu {
+    @apply fixed top-[60px] right-0 w-4/5 h-[calc(100%-60px)] bg-[#bf273a] transition-transform duration-250 translate-x-full z-50;
+  }
+
+  .mobile-menu.open {
+    @apply translate-x-0;
+  }
+
+  .mobile-menu a {
+    @apply block p-4 text-[#ffddb9] no-underline;
+  }
+
+  .modal {
+    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[600px] bg-[#ffddb9] p-8 rounded-lg shadow-lg transition-opacity duration-300 z-50;
+  }
+
+  .modal-close {
+    @apply absolute top-4 right-4 text-2xl cursor-pointer text-[#0a0304];
+  }
+
+  .section {
+    @apply my-8 p-8 bg-[#ffddb9] md:my-4 md:p-4;
+  }
+
+  .footer-links a {
+    @apply mx-4 text-[#ffddb9] no-underline;
+  }
+
+  .nav-link {
+    @apply relative z-10;
+  }
+
+  .nav-link > span {
+    @apply relative z-10;
+  }
+}
+
+@layer utilities {
+  .grid-container {
+    @apply grid grid-cols-12 gap-4;
+  }
+
+  @media (max-width: 1024px) {
+    .grid-container {
+      @apply grid-cols-8;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid-container {
+      @apply grid-cols-1;
+    }
+  }
+
+  .filter-transition {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .nav-link:hover div:last-of-type {
+    transform: rotate(var(--angle)) skew(var(--skew)) scaleX(1) !important;
+    opacity: 0.6 !important;
+    filter: blur(0px) !important;
+  }
+
+  .container {
+    @apply px-8 md:px-4;
+  }
+
+  .checkbox-container {
+    @apply relative pl-[28px] select-none cursor-pointer;
+  }
+
+  .checkbox-container .checkmark {
+    @apply absolute left-0 top-0 h-5 w-5 bg-[#ffddb9] border border-[#0a0304] rounded transition-all duration-200;
+  }
+
+  .checkbox-container:hover input ~ .checkmark {
+    @apply bg-[#ffddb9] border-[#bf273a];
+  }
+
+  .checkbox-container input:checked ~ .checkmark {
+    @apply bg-[#bf273a] border-[#bf273a];
+  }
+
+  .checkbox-container .checkmark:after {
+    @apply content-[''] absolute hidden;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .checkbox-container input:checked ~ .checkmark:after {
+    @apply block;
+  }
+}
